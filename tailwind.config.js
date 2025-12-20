@@ -14,8 +14,13 @@ export default {
 
     theme: {
         extend: {
+            container: {
+                center: true,
+                padding: "2rem",
+            },
             fontFamily: {
                 sans: ["Figtree", ...defaultTheme.fontFamily.sans],
+                jost: ["Jost", "sans-serif"],
             },
         },
     },
