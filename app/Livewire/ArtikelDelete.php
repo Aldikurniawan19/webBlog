@@ -17,7 +17,7 @@ class ArtikelDelete extends Component
         $artikel = Artikel::find($this->id);
 
         if($artikel->gambar_artikel!= null){
-            Storage::disk('public')->delete('artikel/'.$artikel->gambar_artikel);
+            Storage::disk('public')->delete(paths: 'artikel/'.$artikel->gambar_artikel);
 
         }
         $artikel->delete();

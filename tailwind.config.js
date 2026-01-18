@@ -20,7 +20,7 @@ export default {
             },
             fontFamily: {
                 sans: ["Figtree", ...defaultTheme.fontFamily.sans],
-                jost: ["Jost", "sans-serif"],
+                jost: ["Jost", ...defaultTheme.fontFamily.serif],
             },
         },
     },
@@ -28,6 +28,6 @@ export default {
     plugins: [forms, typography, daisyui],
 
     daisyui: {
-        themes: ["light", "dark", "cupcake"], // Load tema-tema ini
+        themes: ["light", "dark", "cupcake"],
     },
 };

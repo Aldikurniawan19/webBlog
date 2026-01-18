@@ -22,17 +22,19 @@ class ArtikelCreate extends Component
         return view('livewire.artikel-create');
     }
 
-    public function rules(){
+    public function rules()
+    {
         return [
             'judul' => 'required',
             'kategori_id' => 'required',
             'konten' => 'required',
             'status' => 'required',
-            'gambar_artikel' => 'required|image|mimes:jpeg,png,jpg|max:2048', 
+            'gambar_artikel' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         ];
     }
 
-    public function messages(){
+    public function messages()
+    {
         return [
             'judul.required' => 'Judul wajib diisi',
             'kategori_id.required' => 'Kategori wajib diisi',
@@ -52,18 +54,17 @@ class ArtikelCreate extends Component
         $fileName = time() . '.' . $file->getClientOriginalExtension();
 
         Storage::disk('public')->putFileAs('artikel', $file, $fileName);
-       
+
         Artikel::create([
-            'judul' => $this->judul,
-            'kategori_id' => $this->kategori_id,
-            'konten' => $this->konten,
-            'status' => $this->status,
-            'gambar_artikel' =>  $fileName,
-            'slug' => Str::slug($this->judul),
+            'judul'               => $this->judul,
+            'kategori_id'         => $this->kategori_id,
+            'konten'              => $this->konten,
+            'status'              => $this->status,
+            'gambar_artikel'      =>  $fileName,
+            'slug'                => Str::slug($this->judul),
         ]);
 
         session()->flash('success', 'Artikel berhasil dibuat.');
         return redirect()->route('artikel');
     }
-
 }
