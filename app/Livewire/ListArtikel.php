@@ -6,7 +6,7 @@ use App\Models\Artikel;
 use Livewire\Component;
 
 class ListArtikel extends Component
-{ 
+{
     public $artikel;
     public function mount()
     {
